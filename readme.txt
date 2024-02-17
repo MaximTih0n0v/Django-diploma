@@ -1,1 +1,1 @@
-Create a new project -_-
+Create a new project |--__--|
