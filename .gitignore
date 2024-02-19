@@ -6,3 +6,5 @@ venv1/
 */migrations/*.рус
 .idea/
 idea/
+.idea
+__pycache__/
