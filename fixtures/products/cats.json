@@ -1,0 +1,66 @@
+[
+  {
+    "model": "products.categories",
+    "fields": {
+      "name": "Все автомобили",
+      "slug": "all"
+    },
+    "pk": 9
+  },
+  {
+    "model": "products.categories",
+    "pk": 10,
+    "fields": {
+      "name": "Бизнес-класс",
+      "slug": "biznes-klass"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 11,
+    "fields": {
+      "name": "Автомобили представительского класса",
+      "slug": "avtomobili-predstavitelskogo-klassa"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 12,
+    "fields": {
+      "name": "Кроссоверы, внедорожники",
+      "slug": "krossovery-vnedorozhniki"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 13,
+    "fields": {
+      "name": "Спортивные автомобили",
+      "slug": "sportivnye-avtomobili"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 14,
+    "fields": {
+      "name": "Коммерческий транспорт",
+      "slug": "kommercheskij-transport"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 15,
+    "fields": {
+      "name": "Автомобили С - класса",
+      "slug": "avtomobili-s-klassa"
+    }
+  },
+  {
+    "model": "products.categories",
+    "pk": 16,
+    "fields": {
+      "name": "Автомобили D - класса",
+      "slug": "avtomobili-d-klassa"
+    }
+  }
+]
