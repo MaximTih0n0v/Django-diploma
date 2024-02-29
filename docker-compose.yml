@@ -16,7 +16,7 @@ services:
       retries: 3
     command: ["docker-entrypoint.sh", "postgres"]
 
-  django_diploma:
+  django_diploma1:
     build: .
     volumes:
       - .:/app
