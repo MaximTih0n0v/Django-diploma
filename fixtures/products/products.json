@@ -1,0 +1,58 @@
+[
+  {
+    "model": "products.products",
+    "pk": 2,
+    "fields": {
+      "name": "Porsche 911 GT3",
+      "slug": "porsche-911-gt3",
+      "description": "Высокомощный спорткар с гоночной ходовой частью и эффективной аэродинамикой. Седьмое поколение высокодинамичного спортивного автомобиля было разработано в тесном сотрудничестве с подразделением Porsche Motorsport.",
+      "image": "products_images/Porsche-911-GT3-Malaysia-10.jpg",
+      "price": "750.00",
+      "discount": "0.00",
+      "quantity": 1,
+      "category": 13
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 3,
+    "fields": {
+      "name": "Mercedes-Benz W223",
+      "slug": "mercedes-benz-w223",
+      "description": "Mercedes-Benz W223 — седьмое поколение флагманской серии представительских автомобилей S-класса немецкой марки Mercedes-Benz, выпускающееся с 2020 года. Пришло на смену модели W222 и базируется на втором поколении фирменной модульной платформы MRA.",
+      "image": "products_images/mercedes-benz_s-class.jpg",
+      "price": "550.00",
+      "discount": "0.00",
+      "quantity": 2,
+      "category": 11
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 4,
+    "fields": {
+      "name": "BMW X5 (G05)",
+      "slug": "bmw-x5-g05",
+      "description": "Cреднеразмерный кроссовер BMW X5 немецкой компании BMW. Выпускается с 2018 года.",
+      "image": "products_images/BMW_X5_G05.jpg",
+      "price": "280.00",
+      "discount": "1.00",
+      "quantity": 2,
+      "category": 12
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 5,
+    "fields": {
+      "name": "Mazda 3 Hatchback (2022)",
+      "slug": "mazda-3-hatchback-2022",
+      "description": "Mazda 3 в кузове Хэтчбэк 2022 года.\r\nМаксимальная комплектация.\r\nДвигатель 2.5 турбо",
+      "image": "products_images/Mazda3-hatch.jpg",
+      "price": "160.00",
+      "discount": "5.00",
+      "quantity": 3,
+      "category": 15
+    }
+  }
+]

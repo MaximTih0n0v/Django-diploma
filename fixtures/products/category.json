@@ -1,11 +1,11 @@
 [
   {
     "model": "products.categories",
+    "pk": 9,
     "fields": {
       "name": "Все автомобили",
       "slug": "all"
-    },
-    "pk": 9
+    }
   },
   {
     "model": "products.categories",
