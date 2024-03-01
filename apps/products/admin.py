@@ -13,3 +13,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    list_display = ['name', 'price', 'discount', 'category', 'quantity']
+    list_editable = ['price', 'discount']
+    search_fields = ['name']
+    list_filter = ['category', 'price']

@@ -37,5 +37,7 @@ class Reservation(models.Model):
         return round(self.product.sell_price() * self.quantity, 2)
 
     def __str__(self):
-        return (f'Корзина {self.user.username} | Автомобиль {self.product.name} | Количество {self.quantity} | '
-                f'Начало бронирования {self.start_datetime}| Окончание бронирования {self.end_datetime}')
+        if self.user:
+            return f'Корзина {self.user.username} | Автомобиль {self.product.name} | Количество {self.quantity}'
+
+        return f'Анонимная корзина | Автомобиль {self.product.name} | Количество {self.quantity}'
