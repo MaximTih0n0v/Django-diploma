@@ -36,8 +36,27 @@ def reservation_add(request):
     return JsonResponse(response_data)
 
 
-def reservation_change(request, product_slug):
-    ...
+def reservation_change(request):
+    cart_id = request.POST.get('cart_id')
+    quantity = request.POST.get('quantity')
+
+    cart = Reservation.objects.get(id=cart_id)
+
+    cart.quantity = quantity
+    cart.save()
+    updated_quantity = cart.quantity
+
+    cart = get_user_carts(request)
+    cart_items_html = render_to_string(
+        "includes/included_reservation.html", {"carts": cart}, request=request
+    )
+    response_data = {
+        "message": "Количество изменено",
+        "cart_items_html": cart_items_html,
+        "quantity": updated_quantity,
+    }
+
+    return JsonResponse(response_data)
 
 
 def reservation_remove(request):
