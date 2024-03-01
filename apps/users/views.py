@@ -5,6 +5,7 @@ from apps.users.forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from apps.reservation.models import Reservation
 
 
 def login(request):
@@ -14,9 +15,15 @@ def login(request):
             username = request.POST['username']
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
+
+            session_key = request.session.session_key
+
             if user:
                 auth.login(request, user)
                 messages.success(request, f'Вы вошли в аккаунт как {username}')
+
+                if session_key:
+                    Reservation.objects.filter(session_key=session_key).update(user=user)
 
                 redirect_page = request.POST.get('next', None)
                 if redirect_page and redirect_page != reverse('user:logout'):
@@ -38,8 +45,14 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+
+            session_key = request.session.session_key
+
             user = form.instance
             auth.login(request, user)
+
+            if session_key:
+                Reservation.objects.filter(session_key=session_key).update(user=user)
             messages.success(request, f'Вы успешно зарегестрированы и вошли в аккаунт как {user.username}')
             return HttpResponseRedirect(reverse('main:index'))
     else:

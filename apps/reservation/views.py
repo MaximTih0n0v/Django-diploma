@@ -23,6 +23,19 @@ def reservation_add(request):
         else:
             Reservation.objects.create(user=request.user, product=product, quantity=1)
 
+    else:
+        carts = Reservation.objects.filter(
+            session_key=request.session.session_key, product=product
+        )
+        if carts.exists():
+            cart = carts.first()
+            if cart:
+                cart.quantity += 1
+                cart.save()
+        else:
+            Reservation.objects.create(
+                session_key=request.session.session_key, product=product, quantity=1
+            )
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
         "includes/included_reservation.html", {"carts": user_cart}, request=request
