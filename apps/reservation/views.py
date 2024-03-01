@@ -23,5 +23,8 @@ def reservation_change(request, product_slug):
     ...
 
 
-def reservation_remove(request, product_slug):
-    ...
+def reservation_remove(request, reservation_id):
+    cart = Reservation.objects.get(id=reservation_id)
+    cart.delete()
+
+    return redirect(request.META['HTTP_REFERER'])
