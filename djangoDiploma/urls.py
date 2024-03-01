@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('apps.main.urls', namespace='main')),
     path('catalog/', include('apps.products.urls', namespace='catalog')),
     path('user/', include('apps.users.urls', namespace='user')),
+    path('reservation/', include('apps.reservation.urls', namespace='reservation')),
 ]
 
 if settings.DEBUG:
