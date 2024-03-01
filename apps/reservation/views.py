@@ -40,8 +40,26 @@ def reservation_change(request, product_slug):
     ...
 
 
-def reservation_remove(request, reservation_id):
-    cart = Reservation.objects.get(id=reservation_id)
+def reservation_remove(request):
+
+    cart_id = request.POST.get('cart_id')
+
+    cart = Reservation.objects.get(id=cart_id)
+    quantity = cart.quantity
     cart.delete()
 
-    return redirect(request.META['HTTP_REFERER'])
+    user_cart = get_user_carts(request)
+    cart_items_html = render_to_string(
+        "includes/included_reservation.html", {"carts": user_cart}, request=request
+    )
+    response_data = {
+        "message": "Товар удалён",
+        "cart_items_html": cart_items_html,
+        "quantity_deleted": quantity,
+    }
+
+    return JsonResponse(response_data)
+
+
+
+
