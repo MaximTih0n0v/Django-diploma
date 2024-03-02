@@ -29,3 +29,13 @@ def contacts(request):
 
     }
     return render(request, 'main/contacts.html', context)
+
+
+def delivery(request):
+    context = {
+        'title': 'Доставка и оплата',
+        'content': 'Здесь может быть какая-то информация о доставке...',
+        'text_on_page': ':)'
+
+    }
+    return render(request, 'main/delivery.html', context)

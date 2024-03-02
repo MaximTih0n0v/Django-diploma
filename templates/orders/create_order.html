@@ -45,19 +45,19 @@
                         <div class="col-md-6 mb-3">
                             <label for="id_patronymic" class="form-label">Отчество*:</label>
                             <input type="text" class="form-control" id="id_patronymic"
-                                   value = "{% if form.patronymic.value %}{{ form.patronymic.value }}{% endif %}"
-                                   name="patronymic"
-                                   required>
-                                {% if form.patronymic.errors %}
-                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.patronymic.errors }}</div>
-                                {% endif %}
+                               value = "{% if form.patronymic.value %}{{ form.patronymic.value }}{% endif %}"
+                               name="patronymic"
+                               required>
+                            {% if form.patronymic.errors %}
+                                <div class="alert alert-danger alert-dismissible fade show">{{ form.patronymic.errors }}</div>
+                            {% endif %}
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="id_phone" class="form-label">Номер телефона*:</label>
                             <input type="text" class="form-control" id="id_phone"
                                 value = "{% if form.phone.value %}{{ form.phone.value }}{% endif %}"
                                 name="phone"
-                                placeholder="В формате: XXX-XXX-XX-XX"
+                                placeholder="В формате: + 375 XX XXX XX XX"
                                 required>
                                 {% if form.phone.errors %}
                                     <div class="alert alert-danger alert-dismissible fade show">{{ form.phone.errors }}</div>
