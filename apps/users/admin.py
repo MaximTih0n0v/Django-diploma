@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from apps.orders.admin import OrderTabularAdmin
 from apps.reservation.admin import ReservationTabAdmin
 from apps.users.models import User
 
@@ -9,4 +9,4 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'last_name', 'first_name', 'patronymic', 'email', 'phone']
     search_fields = ['last_name', 'first_name', 'email', 'phone']
 
-    inlines = [ReservationTabAdmin]
+    inlines = [ReservationTabAdmin, OrderTabularAdmin]

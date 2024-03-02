@@ -10,6 +10,7 @@ urlpatterns = [
     path('catalog/', include('apps.products.urls', namespace='catalog')),
     path('user/', include('apps.users.urls', namespace='user')),
     path('reservation/', include('apps.reservation.urls', namespace='reservation')),
+    path('orders/', include('apps.orders.urls', namespace='orders')),
 ]
 
 if settings.DEBUG:
