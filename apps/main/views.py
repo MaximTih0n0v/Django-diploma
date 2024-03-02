@@ -19,3 +19,13 @@ def about(request):
 
     }
     return render(request, 'main/about.html', context)
+
+
+def contacts(request):
+    context = {
+        'title': 'Контактная информация',
+        'content': 'Адрес: г.Минск пр.Победителей, 125',
+        'text_on_page': 'Телефон: +375 (29) 789 96 69'
+
+    }
+    return render(request, 'main/contacts.html', context)
