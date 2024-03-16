@@ -1,6 +1,9 @@
 from django.contrib.auth.context_processors import auth
+from django.db.models import Prefetch
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
+
+from apps.orders.models import Order, OrderItem
 from apps.users.forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -76,9 +79,17 @@ def profile(request):
     else:
         form = ProfileForm(instance=request.user)
 
+    orders = (
+        Order.objects.filter(user=request.user).prefetch_related(
+            Prefetch('orderitem_set', queryset=OrderItem.objects.select_related('product'),
+                     )
+        ).order_by('-id')
+    )
+
     context = {
         'title': 'Личный кабинет',
-        'form': form
+        'form': form,
+        'orders': orders,
     }
     return render(request, 'users/profile.html', context)
 
