@@ -1,4 +1,5 @@
 from django import forms
+import re
 
 
 class CreateOrderForm(forms.Form):
@@ -19,3 +20,12 @@ class CreateOrderForm(forms.Form):
         ],
     )
     hours = forms.IntegerField()
+
+    def clean_phone(self):
+        data = self.cleaned_data['phone']
+
+        pattern = re.compile(r'^\+[\d\s]+$')
+        if not pattern.match(data):
+            raise forms.ValidationError("Неверный формат номера")
+
+        return data
